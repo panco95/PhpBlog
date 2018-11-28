@@ -1,0 +1,23 @@
+.login {
+    width: 20%;
+    padding-top: 15%;
+    margin: 0 auto;
+}
+
+.register {
+    width: 20%;
+    padding-top: 15%;
+    margin: 0 auto;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    background: lightgray;
+}
+
+body {
+    background: darkgray;
+}

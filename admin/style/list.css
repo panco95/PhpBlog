@@ -1,0 +1,27 @@
+.list{
+    width:20%;
+    background: darkgray;
+    height:500px;
+    float: left;
+}
+
+#list_title{
+    font-size:28px;
+    background:gray;
+    color:white;
+    text-align:center;
+    padding:10px 0px 10px 0px;
+}
+
+.list_list{
+    text-align:center;
+}
+
+.list_list ul{
+    padding-top:20px;
+}
+
+.list_list li{
+    padding:15px 0px 15px 0px;
+    font-size:26px;
+}

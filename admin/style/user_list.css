@@ -1,0 +1,14 @@
+.user_list{
+    padding-top:52px;
+    float:left;
+}
+
+.user_list td{
+    text-align:center;
+    padding:10px;
+}
+.user_list td input{
+    text-align:center;
+    width:60px;
+}
+

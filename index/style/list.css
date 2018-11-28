@@ -1,0 +1,14 @@
+.list {
+    float: right;
+    width: 20%;
+    text-align: center;
+}
+
+.list li {
+    padding: 10px 0px 10px 0px;
+}
+
+.list img {
+    width: 200px;
+    height: 300px;
+}

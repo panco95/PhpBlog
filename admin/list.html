@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style/list.css" type="text/css">
+    <script>
+        function listHover(item){
+            item.style.background = "gray";
+        }
+        function listLeft(item){
+            item.style.background = "darkgray";
+        }
+    </script>
+</head>
+<body>
+<div class="list">
+<div id="list_title">
+  <p>功能选项</p>
+</div>
+    <div class="list_list">
+        <ul>
+            <a href="./admin.php?list=new_article"><li onmouseover="listHover(this)" onmouseout="listLeft(this)">发布文章</li></a>
+            <a href="./admin.php?list=user_manger"><li onmouseover="listHover(this)" onmouseout="listLeft(this)">用户管理</li></a>
+            <a href="./admin.php?list=article_manger"><li onmouseover="listHover(this)" onmouseout="listLeft(this)">文章管理</li></a>
+            <a href="./admin.php?list=article_recybin"><li onmouseover="listHover(this)" onmouseout="listLeft(this)">回 收 站</li></a>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

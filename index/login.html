@@ -1,0 +1,158 @@
+<!-- 登录页面视图 -->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta charset="utf-8">
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <title></title>
+    <style type="text/css">
+        #title {
+            padding-top: 50px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        body {
+            background: white;
+            width: 450px;
+            margin: 0 auto;
+        }
+
+        #form {
+            font-size: 20px;
+            margin-top: 80px;
+            padding: 40px 25px;
+            border: 1px solid black;
+        }
+
+        .textnormal {
+            padding-left: 4px;
+            font-size: 14px;
+            color: red;
+        }
+
+        .texterror {
+            padding-left: 4px;
+            background: red;
+            font-size: 14px;
+            color: white;
+        }
+
+        .textok {
+            padding-left: 4px;
+            color: green;
+            font-size: 14px;
+        }
+
+        #submitbutton {
+            padding-left: 50px;
+        }
+
+        #form {
+            font-size: 16px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function checkform() {
+            if (mailblur() == false || pwblur() == false) {
+                return false;
+            } else {
+                return true;
+            }
+
+        }
+
+        // 邮箱格式验证
+        function mailfocus() {
+            var obj = document.getElementById("emailspan");
+            obj.className = "textnormal";
+            obj.innerHTML = "请在这输入您的邮箱";
+        }
+
+        function mailblur() {
+            var obj = document.getElementById("emailspan");
+            var mail = document.getElementById("email").value;
+            if (mail == "") {
+                obj.className = "texterror";
+                obj.innerHTML = "错误！邮箱不能为空！";
+                return false;
+            } else if (mail.indexOf("@") == -1) {
+                obj.className = "texterror";
+                obj.innerHTML = "输入的邮箱格式错误！！";
+                return false;
+            } else if (mail.indexOf(".com") == -1) {
+                obj.className = "texterror";
+                obj.innerHTML = "输入的邮箱格式错误！";
+                return false;
+            } else {
+                obj.className = "textok";
+                obj.innerHTML = "OK!";
+                return true;
+            }
+        }
+
+        //  密码格式验证
+        function pwfocus() {
+            var obj = document.getElementById("pwspan");
+            obj.className = "textnormal";
+            obj.innerHTML = "请输入密码！";
+        }
+
+        function pwblur() {
+            var obj = document.getElementById("pw").value;
+            var pwspan = document.getElementById("pwspan");
+            if (obj == "") {
+                pwspan.className = "texterror";
+                pwspan.innerHTML = "错误！密码不能为空！";
+                return false;
+            } else if (obj.length < 8) {
+                pwspan.className = "texterror";
+                pwspan.innerHTML = "密码长度不能少于8！";
+                return false;
+            }
+            else {
+                pwspan.className = "textok";
+                pwspan.innerHTML = "OK!";
+                return true;
+            }
+        }
+
+        //定义返回主页按钮功能
+        function return_button() {
+            window.location = './index.php';
+        }
+
+        //定义忘记密码功能
+        function forgrt_password() {
+            window.alert('请使用注册邮箱发送邮件内容 "忘记密码" 进行密码重置（重置后密码：123456）！\n收件人：1129443982@qq.com');
+        }
+    </script>
+</head>
+<body>
+<div id="title">
+    <span>登录页面</span>
+</div>
+<div id="form">
+    <form action="./controller/login.php" method="post" onsubmit="return checkform()">
+        <input type="hidden" name="type" value="login">
+        邮箱：<input id="email" type="text" name="email" onfocus="mailfocus()" onblur="mailblur()"> <span
+            id="emailspan"></span><br/>
+        密码：<input id="pw" type="password" name="password" onfocus="pwfocus()" onblur="pwblur()"> <span
+            id="pwspan"></span><br/>验证：<input type="text" name="verify_code"> <img style="vertical-align:middle;"
+                                                                                   src="../core/verify_code.php"
+                                                                                   onclick="this.src='../core/verify_code.php?change=' + Math.random();">
+        <div id="submitbutton"><br/>
+            <input type="submit" value="点击登录">
+            <input type="button" value="返回主页" onclick="return_button()">
+            <input type="button" value="忘记密码" onclick="forgrt_password()">
+        </div>
+    </form>
+</div>
+</body>
+</html>

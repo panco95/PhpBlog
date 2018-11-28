@@ -1,0 +1,254 @@
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta charset="utf-8">
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <title></title>
+    <style type="text/css">
+        #title {
+            padding-top: 50px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        body {
+            background: white;
+            width: 450px;
+            margin: 0 auto;
+        }
+
+        #form {
+            font-size: 20px;
+            margin-top: 80px;
+            padding: 40px 25px;
+            border: 1px solid black;
+        }
+
+        .textnormal {
+            padding-left: 4px;
+            font-size: 14px;
+            color: red;
+        }
+
+        .texterror {
+            padding-left: 4px;
+            font-size: 14px;
+            color: darkred;
+        }
+
+        .textok {
+            padding-left: 4px;
+            color: green;
+            font-size: 14px;
+        }
+
+        #submitbutton {
+            text-align: center;
+        }
+
+        #form {
+            font-size: 16px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function checkform() {
+            if (mailblur() == false || nameblur() == false || pwblur() == false || sex() == false || city() == false) {
+                return false;
+            } else {
+                return true;
+            }
+
+        }
+
+        // 邮箱格式验证
+        function mailfocus() {
+            var obj = document.getElementById("emailspan");
+            obj.className = "textnormal";
+            obj.innerHTML = "请在这输入您的邮箱";
+        }
+
+        function mailblur() {
+            var obj = document.getElementById("emailspan");
+            var mail = document.getElementById("email").value;
+            if (mail == "") {
+                obj.className = "texterror";
+                obj.innerHTML = "错误！邮箱不能为空！";
+                return false;
+            } else if (mail.indexOf("@") == -1) {
+                obj.className = "texterror";
+                obj.innerHTML = "输入的邮箱格式错误！！";
+                return false;
+            } else if (mail.indexOf(".com") == -1) {
+                obj.className = "texterror";
+                obj.innerHTML = "输入的邮箱格式错误！";
+                return false;
+            } else {
+                obj.className = "textok";
+                obj.innerHTML = "OK!";
+                return true;
+            }
+        }
+
+        // 昵称格式验证
+        function namefocus() {
+            var obj = document.getElementById("namespan");
+            obj.className = "textnormal";
+            obj.innerHTML = "输入一个你喜欢的昵称";
+        }
+
+        function nameblur() {
+            var obj = document.getElementById("username").value;
+            var name = document.getElementById("namespan");
+            if (obj == "") {
+                name.className = "texterror";
+                name.innerHTML = "错误！昵称不能为空！";
+                return false;
+            } else if (obj.length < 4) {
+                name.className = "texterror";
+                name.innerHTML = "昵称长度不能少于4！";
+                return false;
+            }
+            else {
+                name.className = "textok";
+                name.innerHTML = "OK!";
+                return true;
+            }
+        }
+
+        //  密码格式验证
+        function pwfocus() {
+            var obj = document.getElementById("pwspan");
+            obj.className = "textnormal";
+            obj.innerHTML = "输入只有你知道的密码";
+        }
+
+        function pwblur() {
+            var obj = document.getElementById("pw").value;
+            var pwspan = document.getElementById("pwspan");
+            if (obj == "") {
+                pwspan.className = "texterror";
+                pwspan.innerHTML = "错误！密码不能为空！";
+                return false;
+            } else if (obj.length < 8) {
+                pwspan.className = "texterror";
+                pwspan.innerHTML = "密码长度不能少于8！";
+                return false;
+            }
+            else {
+                pwspan.className = "textok";
+                pwspan.innerHTML = "OK!";
+                return true;
+            }
+        }
+
+        // 性别选择验证
+        function sex() {
+            var obj = document.getElementsByName("sex");
+            // 单选框用name选择器obj构成一个数组
+            // 特别注意：Name为sex的标签有两个，所以要在element后面加s
+            if (obj[0].checked == true || obj[1].checked == true) {
+                return true;
+            } else {
+                sex.className = "texterror";
+                sex.innerHTML = "错误！请选择性别！";
+                return false;
+            }
+        }
+
+        function clicksex() {
+            var sex = document.getElementById("sexspan");
+            sex.className = "textok";
+            sex.innerHTML = "OK!";
+        }
+
+        // 地区验证，用onchange事件弹出ok！
+        function city() {
+            var obj = document.getElementById("citys").value;
+            var cityspan = document.getElementById("cityspan");
+            if (obj == "") {
+                cityspan.className = "texterror";
+                cityspan.innerHTML = "错误！请选择地区";
+                return false;
+            } else {
+                cityspan.className = "textok";
+                cityspan.innerHTML = "OK!";
+                return true;
+            }
+        }
+
+        //定义返回主页按钮功能
+        function return_button() {
+            window.location = './index.php';
+        }
+    </script>
+</head>
+<body>
+<div id="title">
+    <span>注册页面</span>
+</div>
+<div id="form">
+    <form action="./controller/register.php" method="post" onsubmit="return checkform()">
+        <input type="hidden" name="type" value="register">
+        邮箱：<input id="email" type="text" name="email" onfocus="mailfocus()" onblur="mailblur()"> <span
+            id="emailspan"></span><br/>
+        昵称：<input type="text" id="username" name="username" onfocus="namefocus()" onblur="nameblur()"> <span
+            id="namespan"></span><br/>
+        密码：<input id="pw" type="password" name="password" onfocus="pwfocus()" onblur="pwblur()"> <span
+            id="pwspan"></span><br/>
+        性别：<input id="sex" type="radio" name="sex" value="男" onclick="clicksex()">男 <input id="sex" type="radio"
+                                                                                           name="sex" value="女"
+                                                                                           onclick="clicksex()">女 <span
+            id="sexspan"></span><br/>
+        地区：<select id="citys" name="city" onchange="city()">
+        <option value="未知">请选择省份</option>
+        <option value="北京市">北京市</option>
+        <option value="天津市">天津市</option>
+        <option value="上海市">上海市</option>
+        <option value="重庆市">重庆市</option>
+        <option value="河北省">河北省</option>
+        <option value="山西省">山西省</option>
+        <option value="辽宁省">辽宁省</option>
+        <option value="吉林省">吉林省</option>
+        <option value="黑龙江">黑龙江</option>
+        <option value="江苏省">江苏省</option>
+        <option value="浙江省">浙江省</option>
+        <option value="安微省">安微省</option>
+        <option value="福建省">福建省</option>
+        <option value="江西省">江西省</option>
+        <option value="山东省">山东省</option>
+        <option value="河南省">河南省</option>
+        <option value="湖北省">湖北省</option>
+        <option value="湖南省">湖南省</option>
+        <option value="广东省">广东省</option>
+        <option value="海南省">海南省</option>
+        <option value="四川省">四川省</option>
+        <option value="贵州省">贵州省</option>
+        <option value="云南省">云南省</option>
+        <option value="陕西省">陕西省</option>
+        <option value="甘肃省">甘肃省</option>
+        <option value="青海省">青海省</option>
+        <option value="台湾">台湾</option>
+        <option value="内蒙古">内蒙古</option>
+        <option value="西藏">西藏</option>
+        <option value="新疆">新疆</option>
+        <option value="澳门">澳门</option>
+        <option value="香港">香港</option>
+        <option value="宁夏">宁夏</option>
+        <option value="国外">国外</option>
+    </select><span id="cityspan"></span><br/>
+        验证：<input type="text" name="verify_code"> <img style="vertical-align:middle;" src="../core/verify_code.php"
+                                                       onclick="this.src='../core/verify_code.php?change=' + Math.random();"><br/><br/>
+        <div id="submitbutton">
+            <input type="submit" value="点击注册">
+            <input type="button" value="返回主页" onclick="return_button()">
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.navigation {
+    padding-left: 10px;
+    background-color: black;
+}
+
+.navigation ul {
+    width: 100%;
+    height: 50px;
+}
+
+.navigation ul li {
+    float: left;
+    padding-left: 10px;
+    padding-right: 20px;
+    line-height: 50px;
+    font-size: 20px;
+    color: white;
+}
+

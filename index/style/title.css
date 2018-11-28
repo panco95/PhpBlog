@@ -1,0 +1,15 @@
+.title {
+    width: 100%;
+    height: 70px;
+    background: white;
+}
+
+#title_left {
+    float: left;
+}
+
+#search {
+    float: right;
+    padding-right: 15px;
+    line-height: 80px;
+}

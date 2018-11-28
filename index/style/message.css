@@ -1,0 +1,54 @@
+.message {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+#send_message {
+    resize: none;
+    width: 500px;
+    height: 120px;
+    background: white;
+    border: 1px solid black;
+    font-size: 22px;
+    text-indent: 26px;
+    color: black;
+}
+
+#message_button {
+    width: 60px;
+    height: 35px;
+    text-align: center;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+
+.message_show {
+    background: white;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+|
+}
+
+#message_title {
+    background: black;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+#message_text {
+    padding: 10px;
+    text-indent: 32px;
+    font-size: 22px;
+    background: white;
+    border: 1px solid black;
+}
+
+.limitpage {
+    text-align: center;
+}

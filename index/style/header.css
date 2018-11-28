@@ -1,0 +1,16 @@
+.header {
+    height: 30px;
+    width: 100%;
+}
+
+#header_left {
+    line-height: 30px;
+    padding-left: 15px;
+    float: left;
+}
+
+#header_right {
+    line-height: 30px;
+    padding-right: 15px;
+    float: right;
+}

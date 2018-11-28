@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/navigation.css" type="text/css">
+    <script>
+        function listHover(item) {
+            item.style.background = "white";
+            item.style.color = "black";
+        }
+
+        function leftList(item) {
+            item.style.background = "black";
+            item.style.color = "white";
+        }
+    </script>
+</head>
+<body>
+<div class="navigation">
+    <ul>
+        <a href="index.php">
+            <li id="index" onmouseover="listHover(this)" onmouseout="leftList(this)">首页</li>
+        </a>
+        <a href="index.php">
+            <li id="blog" onmousemove="listHover(this)" onmouseout="leftList(this)">文章</li>
+        </a>
+        <a href="message.php">
+            <li id="content" onmousemove="listHover(this)" onmouseout="leftList(this)">留言板</li>
+        </a>
+    </ul>
+</div>
+</body>
+</html>
